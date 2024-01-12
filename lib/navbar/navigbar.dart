@@ -1,10 +1,9 @@
-import 'package:canteen_admin/navbar/screen1.dart';
-import 'package:canteen_admin/navbar/screen2.dart';
-import 'package:canteen_admin/navbar/screen3.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../mainscreen.dart';
+import '../productlist.dart';
 
 class navigation extends StatefulWidget {
   const navigation({super.key});
@@ -15,11 +14,11 @@ class navigation extends StatefulWidget {
 
 class _navigationState extends State<navigation> {
   int myIndex = 0;
-  List<Widget> widgetList = const [
+  List<Widget> widgetList =  [
     MainScreen(),
-    screen1(),
-    sreen2(),
-    screen3(),
+    Productlist(),
+    Productlist(),
+    Productlist(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -29,8 +28,7 @@ class _navigationState extends State<navigation> {
           index: myIndex),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
+        type: BottomNavigationBarType.shifting,
         //selectedItemColor: Color(0xff58e517),
         backgroundColor: Colors.white,
         onTap: (index) {

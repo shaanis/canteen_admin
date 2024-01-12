@@ -1,4 +1,5 @@
 import 'package:canteen_admin/navbar/navigbar.dart';
+import 'package:canteen_admin/productlist.dart';
 import 'package:flutter/material.dart';
 
 import 'mainscreen.dart';
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:navigation()
+      home: //prolist()
+      navigation()
+        //Productlist()
     );
   }
 }

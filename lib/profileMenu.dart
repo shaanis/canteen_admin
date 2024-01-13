@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class ProfileMenu extends StatefulWidget {
   const ProfileMenu({super.key});
@@ -8,9 +9,11 @@ class ProfileMenu extends StatefulWidget {
 }
 
 class _ProfileMenuState extends State<ProfileMenu> {
+  bool status = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
@@ -33,6 +36,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
       body: Container(
         child: Column(
           children: [
+            SizedBox(height: 10,),
             Row(
               children: [
                 Padding(
@@ -103,6 +107,131 @@ class _ProfileMenuState extends State<ProfileMenu> {
                 ],
               ),
             ),
+            Spacer(),
+            Container(
+              padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
+              margin: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 5,
+                bottom: 10,
+              ),
+              width: double.infinity,
+              height: 70,
+              decoration: BoxDecoration(
+                  color: Color(0xffdffcd2),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                children: [
+                  Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.settings_outlined,
+                            color: Color(0xff403dfa),
+                          ),
+                        ),
+                        SizedBox(width: 10,),
+                        Text("Maintanance"),
+                        Spacer(),
+                        FlutterSwitch(
+                          width: 42,
+                            height: 23,
+                            toggleSize: 15,
+                            value: status,
+                            onToggle: (val){
+                          setState(() {
+                            status = val;
+                          });
+                            })
+                      ],
+                    ),
+                ],
+              ),
+            ),
+            Spacer(),
+            Container(
+              padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
+              margin: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 5,
+                bottom: 10,
+              ),
+              width: double.infinity,
+              height: 70,
+              decoration: BoxDecoration(
+                  color: Color(0xffdffcd2),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                children: [
+                  InkWell(
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Image.asset('assets/images/bill1.png',scale: 13,color: Color(0xff18cde7),),
+                        ),
+                        SizedBox(width: 10,),
+                        Text("Manage Orders"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
+                    onTap:() {
+                      /* Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ProfileEdit()),
+                                );*/
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Spacer(),
+            Container(
+              padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
+              margin: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 5,
+                bottom: 10,
+              ),
+              width: double.infinity,
+              height: 70,
+              decoration: BoxDecoration(
+                  color: Color(0xffdffcd2),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                children: [
+                  InkWell(
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.history,
+                            color: Color(0xfff96e3e),
+                          ),
+                        ),
+                        SizedBox(width: 10,),
+                        Text("Donation History"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
+                    onTap:() {
+                      /* Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ProfileEdit()),
+                                );*/
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Spacer(),
             Container(
               padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
               margin: EdgeInsets.only(
@@ -144,47 +273,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
                 ],
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
-              margin: EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 5,
-                bottom: 10,
-              ),
-              width: double.infinity,
-              height: 70,
-              decoration: BoxDecoration(
-                  color: Color(0xffdffcd2),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                children: [
-                  InkWell(
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_outline_sharp,
-                            color: Color(0xfff96e3e),
-                          ),
-                        ),
-                        SizedBox(width: 10,),
-                        Text("Personal Info"),
-                        Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
-                      ],
-                    ),
-                    onTap:() {
-                      /* Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => ProfileEdit()),
-                                );*/
-                    },
-                  ),
-                ],
-              ),
-            ),
+            Spacer(),
             Container(
               padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
               margin: EdgeInsets.only(

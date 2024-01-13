@@ -1,3 +1,4 @@
+import 'package:canteen_admin/bottomsheet/bottom.dart';
 import 'package:canteen_admin/productlist.dart';
 import 'package:canteen_admin/profileMenu.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,9 @@ class _MainScreenState extends State<MainScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        _showBottomSheet(context);
+                      },
                       child: Container(
                         width: double.infinity,
                         height: 100,
@@ -572,5 +575,12 @@ class _MainScreenState extends State<MainScreen> {
       ),
       backgroundColor: Colors.white,
     );
+  }
+  void _showBottomSheet(BuildContext context){
+    showModalBottomSheet(context: context,
+        shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),backgroundColor: Colors.blue,
+        builder: (context)=>
+      BottomSheetPage()
+        );
   }
 }

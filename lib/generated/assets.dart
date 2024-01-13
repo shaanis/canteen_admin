@@ -2,8 +2,10 @@
 class Assets {
   Assets._();
 
+  static const String imagesBill1 = 'assets/images/bill1.png';
   static const String imagesBiriyani5 = 'assets/images/biriyani5.png';
   static const String imagesIcLauncher = 'assets/images/ic_launcher.png';
+  static const String imagesManage = 'assets/images/manage.png';
   static const String imagesVerumchor1 = 'assets/images/verumchor1.jpg';
 
 }

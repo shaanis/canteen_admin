@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../bottomsheet/bottom.dart';
 import '../mainscreen.dart';
 import '../productlist.dart';
 
@@ -17,7 +18,7 @@ class _navigationState extends State<navigation> {
   List<Widget> widgetList =  [
     MainScreen(),
     Productlist(),
-    Productlist(),
+    BottomSheetPage(),
     Productlist(),
   ];
   @override

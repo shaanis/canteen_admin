@@ -1,3 +1,4 @@
+import 'package:canteen_admin/Review.dart';
 import 'package:canteen_admin/bottomsheet/bottom.dart';
 import 'package:canteen_admin/productlist.dart';
 import 'package:canteen_admin/profileMenu.dart';
@@ -196,7 +197,9 @@ class _MainScreenState extends State<MainScreen> {
                         Text("Reviews"),
                         Spacer(),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ReviewPage()));
+                          },
                           child: Text(
                             "See All Reviews",
                             style: TextStyle(
@@ -578,7 +581,7 @@ class _MainScreenState extends State<MainScreen> {
   }
   void _showBottomSheet(BuildContext context){
     showModalBottomSheet(context: context,
-        shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50),bottomRight: Radius.circular(50))),
         builder: (context)=>
       BottomSheetPage()
         );

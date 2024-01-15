@@ -2,8 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../bottomsheet/bottom.dart';
+import '../donationhistory.dart';
 import '../mainscreen.dart';
+import '../orders.dart';
 import '../productlist.dart';
 
 class navigation extends StatefulWidget {
@@ -18,8 +19,8 @@ class _navigationState extends State<navigation> {
   List<Widget> widgetList =  [
     MainScreen(),
     Productlist(),
-    BottomSheetPage(),
-    Productlist(),
+    OrdersPage(),
+    DonationHistory(),
   ];
   @override
   Widget build(BuildContext context) {

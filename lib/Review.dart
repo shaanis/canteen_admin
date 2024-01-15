@@ -9,12 +9,18 @@ class ReviewPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Center(
-            child: Text(
-          'Donation History',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black),
-        )),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        },
+          icon: Icon(Icons.arrow_back_ios,color: Colors.black,),),
+         title: Padding(
+           padding: const EdgeInsets.only(left: 88.0),
+           child: Text(
+            'Reviews',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black),
+        ),
+         ),
       ),
       body: Container(
         margin: EdgeInsets.all(10),

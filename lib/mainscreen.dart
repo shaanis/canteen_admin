@@ -4,6 +4,7 @@ import 'package:canteen_admin/productlist.dart';
 import 'package:canteen_admin/profileMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,8 +15,12 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   var _value = "Daily";
-
   List<String> dropList = ["Daily", "Weekly", "Monthly", "Yearly"];
+
+  final List<Color> gradientColors=[
+    Color(0xff63e726),
+    Color(0xff63e726),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -180,13 +185,55 @@ class _MainScreenState extends State<MainScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      height: 150,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        shape: BoxShape.rectangle,
-                        //borderRadius: BorderRadius.circular(5)
+                    Container(height: 160,width: double.infinity,
+                      child: Stack(
+                        children:[ LineChart(
+                          LineChartData(
+                            minX: 0,
+                            maxX: 11,
+                            minY: 0,
+                            maxY: 5,
+                              gridData: FlGridData(
+                                show: true,
+                                getDrawingHorizontalLine: (value){
+                                  return FlLine(
+                                    color: Color(0xff63e726),
+                                    strokeWidth: .5
+                                  );
+                                },
+                                  getDrawingVerticalLine: (value){
+                                    return FlLine(
+                                        color: Color(0xff63e726),
+                                        strokeWidth: .5
+                                    );
+                                  }
+                              ),
+                              borderData: FlBorderData(
+                                show: true,
+                                border: Border.all(color: Color(0xff37434d),width:1)
+                              ),
+                              lineBarsData: [
+                                LineChartBarData(
+                                    spots:[
+                                      FlSpot(0,3),
+                                      FlSpot(2.6,2),
+                                      FlSpot(4.9,5),
+                                      FlSpot(6.8,2.5),
+                                      FlSpot(8,4),
+                                      FlSpot(9.5,3),
+                                      FlSpot(11,4),
+                                    ],
+                                  isCurved: true,
+                                  color: Color(0xff63e726),
+                                  // barWidth: 3,
+                                  // belowBarData: BarAreaData(
+                                  //   show: true,
+                                  //   color: Color(0xff63e726)
+                                  // ),
+                                ),
+                              ],
+                          ),
+                        ),]
                       ),
                     ),
                     SizedBox(

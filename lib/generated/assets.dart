@@ -4,6 +4,9 @@ class Assets {
 
   static const String imagesBill1 = 'assets/images/bill1.png';
   static const String imagesBiriyani5 = 'assets/images/biriyani5.png';
+  static const String imagesEee = 'assets/images/eee.png';
+  static const String imagesFrame = 'assets/images/frame.png';
+  static const String imagesFrame8 = 'assets/images/Frame8.png';
   static const String imagesIcLauncher = 'assets/images/ic_launcher.png';
   static const String imagesManage = 'assets/images/manage.png';
   static const String imagesVerumchor1 = 'assets/images/verumchor1.jpg';

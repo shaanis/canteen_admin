@@ -1,3 +1,5 @@
+import 'package:canteen_admin/donationhistory.dart';
+import 'package:canteen_admin/profilePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -101,10 +103,10 @@ class _ProfileMenuState extends State<ProfileMenu> {
                         ],
                       ),
                       onTap:() {
-                        /* Navigator.push(
+                        Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => ProfileEdit()),
-                                  );*/
+                                  );
                       },
                     ),
                   ],
@@ -225,10 +227,10 @@ class _ProfileMenuState extends State<ProfileMenu> {
                         ],
                       ),
                       onTap:() {
-                        /* Navigator.push(
+                        Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => ProfileEdit()),
-                                  );*/
+                                    MaterialPageRoute(builder: (context) => DonationHistory()),
+                                  );
                       },
                     ),
                   ],

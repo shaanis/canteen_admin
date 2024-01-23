@@ -5,200 +5,124 @@ class OrdersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Colors.white,elevation: 0,
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
         title: Center(
             child: Text(
           'Orders',
           style: TextStyle(
-              fontWeight: FontWeight.bold,fontSize: 14,
-              color: Colors.black),
+              fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black),
         )),
       ),
       body: Container(
         child: ListView.builder(
-            itemCount: 2,
+            itemCount: 5,
             itemBuilder: (BuildContext context, int index) {
-              return Column(
-                children: [
-                  Container(
-                    height: 110,
-                    color: Colors.white,
-                    width: double.infinity,
-                    margin: EdgeInsets.all(10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+              return Container(
+                height: height * 0.12,
+                color: Colors.black,
+                width: width,
+                margin: EdgeInsets.all(height * .015),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(height * .008),
+                      height: height * .11,
+                      width: width * .235,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          image: DecorationImage(
+                              image: AssetImage('assets/images/verumchor1.jpg'),
+                              fit: BoxFit.cover),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(height * .019)),
+                    ),
+                    SizedBox(
+                      width: width * .03,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          margin: EdgeInsets.all(5),
-                          height: 90,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/images/verumchor1.jpg'),
-                                  fit: BoxFit.cover),
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(12)),
+                        SizedBox(
+                          height: height * .015,
+                        ),
+                        Text(
+                          'Chicken Biriyani',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: height * .017),
                         ),
                         SizedBox(
-                          width: 10,
+                          height: height * .002,
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Chicken Biriyani',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 11),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Token No:032',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.grey),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Quality:5',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.grey),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  '₹70',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                          ],
+                        Text(
+                          'Token No:032',
+                          style: TextStyle(
+                              fontSize: height * .015, color: Colors.grey),
                         ),
-                        Spacer(),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff53e510),
-                            elevation: 0,
-                            fixedSize: Size(80, 30),
-                            minimumSize: Size(10, 15),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                          ),
-                          child: Text(
-                            'Accepted',
-                            style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                          ),
+                        SizedBox(
+                          height: height * .002,
+                        ),
+                        Text(
+                          'Quality:5',
+                          style: TextStyle(
+                              fontSize: height * .015, color: Colors.grey),
+                        ),
+                        Text(
+                          '₹70',
+                          style: TextStyle(
+                              fontSize: height * .018,
+                              fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
-                  ),
-                  Container(
-                    height: 110,
-                    color: Colors.white,
-                    width: double.infinity,
-                    margin: EdgeInsets.all(10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.all(5),
-                          height: 90,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/images/verumchor1.jpg'),
-                                  fit: BoxFit.cover),
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(12)),
+                    Spacer(),
+                    Container(
+                      margin: EdgeInsets.only(right: height * .008),
+                      width: width * .24,
+                      height: height * .045,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(height * .009),
+                        color: Color(0xff53e510),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Delivered",
+                          style: TextStyle(
+                              fontSize: height * .017,
+                              fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Chicken Biriyani',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 11),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Token No:032',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.grey),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Quality:5',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.grey),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  '₹70',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              backgroundColor: Colors.white,
-                              fixedSize: Size(80, 30),
-                              minimumSize: Size(10, 15),
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                    color: Color(0xfffd3327), width: 0.9),
-                                borderRadius: BorderRadius.circular(7),
-                              ),
-                            ),
-                            child: Text(
-                              'Pending',
-                              style: TextStyle(
-                                  fontSize: 10,
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.w400),
-                            )),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
+                    // ElevatedButton(
+                    //   onPressed: () {},
+                    //   style: ElevatedButton.styleFrom(
+                    //     backgroundColor: Color(0xff53e510),
+                    //     elevation: 0,
+                    //     fixedSize: Size(80, 30),
+                    //     minimumSize: Size(10, 15),
+                    //     shape: RoundedRectangleBorder(
+                    //       borderRadius: BorderRadius.circular(7),
+                    //     ),
+                    //   ),
+                    //   child: Text(
+                    //     'Accepted',
+                    //     style: TextStyle(
+                    //         fontSize: 10,
+                    //         color: Colors.white,
+                    //         fontWeight: FontWeight.w500),
+                    //   ),
+                    // ),
+                  ],
+                ),
               );
             }),
       ),

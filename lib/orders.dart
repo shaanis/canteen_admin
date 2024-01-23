@@ -25,7 +25,7 @@ class OrdersPage extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 height: height * 0.12,
-                color: Colors.black,
+                color: Colors.white,
                 width: width,
                 margin: EdgeInsets.all(height * .015),
                 child: Row(
@@ -102,25 +102,6 @@ class OrdersPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // ElevatedButton(
-                    //   onPressed: () {},
-                    //   style: ElevatedButton.styleFrom(
-                    //     backgroundColor: Color(0xff53e510),
-                    //     elevation: 0,
-                    //     fixedSize: Size(80, 30),
-                    //     minimumSize: Size(10, 15),
-                    //     shape: RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(7),
-                    //     ),
-                    //   ),
-                    //   child: Text(
-                    //     'Accepted',
-                    //     style: TextStyle(
-                    //         fontSize: 10,
-                    //         color: Colors.white,
-                    //         fontWeight: FontWeight.w500),
-                    //   ),
-                    // ),
                   ],
                 ),
               );

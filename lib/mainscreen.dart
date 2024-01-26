@@ -17,13 +17,15 @@ class _MainScreenState extends State<MainScreen> {
   var _value = "Daily";
   List<String> dropList = ["Daily", "Weekly", "Monthly", "Yearly"];
 
-  final List<Color> gradientColors=[
+  final List<Color> gradientColors = [
     Color(0xff63e726),
     Color(0xff63e726),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -34,18 +36,18 @@ class _MainScreenState extends State<MainScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 4.0, bottom: 15, left: 15, right: 15),
+                    top: 4.0, bottom: 14, left: 15, right: 15),
                 child: Row(
                   children: [
                     Text(
                       "Home",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: width * .055, fontWeight: FontWeight.bold),
                     ),
                     Spacer(),
                     Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(height * .05),
                           boxShadow: [
                             BoxShadow(
                               blurStyle: BlurStyle.inner,
@@ -56,7 +58,7 @@ class _MainScreenState extends State<MainScreen> {
                             )
                           ]),
                       child: CircleAvatar(
-                        radius: 20,
+                        radius: height * .025,
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.grey,
                         child: InkWell(
@@ -66,8 +68,11 @@ class _MainScreenState extends State<MainScreen> {
                                 MaterialPageRoute(
                                     builder: (context) => ProfileMenu()));
                           },
-                          child: Image.asset("assets/images/ic_launcher.png",
-                              width: 28, height: 28),
+                          child: Image.asset(
+                            "assets/images/ic_launcher.png",
+                            width: width * .09,
+                            height: height * .05,
+                          ),
                         ),
                       ),
                     ),
@@ -75,21 +80,21 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(10),
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.909,
+                margin: EdgeInsets.all(height * .015),
+                width: width,
+                height: height * .78,
                 color: Colors.white,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     InkWell(
                       onTap: () {
                         _showBottomSheet(context);
                       },
                       child: Container(
-                        width: double.infinity,
-                        height: 100,
+                        width: width,
+                        height: height * .13,
                         decoration: BoxDecoration(
                           color: Color(0xffe6fcdc),
                           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -100,14 +105,14 @@ class _MainScreenState extends State<MainScreen> {
                             Text(
                               '20',
                               style: TextStyle(
-                                fontSize: 30,
+                                fontSize: height * .03,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
                               'TODAY ORDERS',
                               style: TextStyle(
-                                fontSize: 10,
+                                fontSize: height * .015,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xff808180),
                               ),
@@ -116,7 +121,7 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: height * .035),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,19 +132,19 @@ class _MainScreenState extends State<MainScreen> {
                             Text(
                               "Total Revenue",
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: height * .016,
                                 color: Color(0xff808180),
                               ),
                             ),
                             SizedBox(
-                              height: 3,
+                              height: height * .003,
                             ),
                             Text("₹2,250"),
                           ],
                         ),
                         SizedBox(
-                          width: 100,
-                          height: 40,
+                          width: width * .21,
+                          height: height * .045,
                           child: DropdownButtonFormField(
                               decoration: InputDecoration(
                                   disabledBorder: OutlineInputBorder(
@@ -174,7 +179,7 @@ class _MainScreenState extends State<MainScreen> {
                             "See Details",
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 12,
+                              fontSize: height * .015,
                               color: Color(0xff53e510),
                               decoration: TextDecoration.underline,
                             ),
@@ -185,59 +190,59 @@ class _MainScreenState extends State<MainScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    Container(height: 160,width: double.infinity,
-                      child: Stack(
-                        children:[ LineChart(
+                    Container(
+                      height: height * .2,
+                      width: width,
+                      child: Stack(children: [
+                        LineChart(
                           LineChartData(
                             minX: 0,
                             maxX: 11,
                             minY: 0,
                             maxY: 5,
-                              gridData: FlGridData(
+                            gridData: FlGridData(
                                 show: true,
-                                getDrawingHorizontalLine: (value){
+                                getDrawingHorizontalLine: (value) {
                                   return FlLine(
-                                    color: Color(0xff63e726),
-                                    strokeWidth: .5
-                                  );
+                                      color: Color(0xff63e726),
+                                      strokeWidth: .5);
                                 },
-                                  getDrawingVerticalLine: (value){
-                                    return FlLine(
-                                        color: Color(0xff63e726),
-                                        strokeWidth: .5
-                                    );
-                                  }
-                              ),
-                              borderData: FlBorderData(
+                                getDrawingVerticalLine: (value) {
+                                  return FlLine(
+                                      color: Color(0xff63e726),
+                                      strokeWidth: .5);
+                                }),
+                            borderData: FlBorderData(
                                 show: true,
-                                border: Border.all(color: Color(0xff37434d),width:1)
+                                border: Border.all(
+                                    color: Color(0xff37434d),
+                                    width: width * .005)),
+                            lineBarsData: [
+                              LineChartBarData(
+                                spots: [
+                                  FlSpot(0, 3),
+                                  FlSpot(2.6, 2),
+                                  FlSpot(4.9, 5),
+                                  FlSpot(6.8, 2.5),
+                                  FlSpot(8, 4),
+                                  FlSpot(9.5, 3),
+                                  FlSpot(11, 4),
+                                ],
+                                isCurved: true,
+                                color: Color(0xff63e726),
+                                // barWidth: 3,
+                                // belowBarData: BarAreaData(
+                                //   show: true,
+                                //   color: Color(0xff63e726)
+                                // ),
                               ),
-                              lineBarsData: [
-                                LineChartBarData(
-                                    spots:[
-                                      FlSpot(0,3),
-                                      FlSpot(2.6,2),
-                                      FlSpot(4.9,5),
-                                      FlSpot(6.8,2.5),
-                                      FlSpot(8,4),
-                                      FlSpot(9.5,3),
-                                      FlSpot(11,4),
-                                    ],
-                                  isCurved: true,
-                                  color: Color(0xff63e726),
-                                  // barWidth: 3,
-                                  // belowBarData: BarAreaData(
-                                  //   show: true,
-                                  //   color: Color(0xff63e726)
-                                  // ),
-                                ),
-                              ],
+                            ],
                           ),
-                        ),]
-                      ),
+                        ),
+                      ]),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: height * .028,
                     ),
                     Row(
                       children: [
@@ -245,13 +250,16 @@ class _MainScreenState extends State<MainScreen> {
                         Spacer(),
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ReviewPage()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ReviewPage()));
                           },
                           child: Text(
                             "See All Reviews",
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 12,
+                              fontSize: height * .0145,
                               color: Color(0xff53e510),
                               decoration: TextDecoration.underline,
                             ),
@@ -260,22 +268,22 @@ class _MainScreenState extends State<MainScreen> {
                       ],
                     ),
                     SizedBox(
-                      height: 15,
+                      height: height * .018,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: 15,
+                          width: width * .025,
                         ),
                         Icon(
                           Icons.star,
                           color: Colors.amber,
-                          size: 28,
+                          size: height * .035,
                         ),
                         SizedBox(
-                          width: 5,
+                          width: width * .023,
                         ),
                         Text(
                           "4.9",
@@ -283,13 +291,13 @@ class _MainScreenState extends State<MainScreen> {
                               fontWeight: FontWeight.bold, color: Colors.amber),
                         ),
                         SizedBox(
-                          width: 20,
+                          width: width * .038,
                         ),
                         Text(
                           "Total 20 Reviews",
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
-                              fontSize: 12,
+                              fontSize: height * .016,
                               color: Colors.black),
                         )
                       ],
@@ -297,39 +305,36 @@ class _MainScreenState extends State<MainScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          "Popular",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      "Popular",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: height * 0.025,
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          InkWell(
+                    Flexible(
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 4,
+                        itemBuilder: (BuildContext context, int index) {
+                          return InkWell(
                             onTap: () {
                               // Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
                             },
                             child: Container(
                               margin: EdgeInsets.only(right: 25),
                               color: Colors.white,
-                              //margin: EdgeInsets.all(10),
-                              height: 150, width: 150,
+                              height: 20,
+                              width: width * .39,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                //mainAxisAlignment: MainAxisAlignment.center,
+                                //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Container(
-                                    height: 100,
-                                    width: 150,
+                                    height: height * .11,
+                                    width: width * .4,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(10),
@@ -363,13 +368,13 @@ class _MainScreenState extends State<MainScreen> {
                                       Text(
                                         "₹70",
                                         style: TextStyle(
-                                            fontSize: 13,
+                                            fontSize: height*.017,
                                             fontWeight: FontWeight.w500),
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 5,
+                                    height: height*.005,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 5.0),
@@ -388,232 +393,8 @@ class _MainScreenState extends State<MainScreen> {
                                 ],
                               ),
                             ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              //Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 25),
-                              color: Colors.white,
-                              //margin: EdgeInsets.all(10),
-                              height: 150, width: 150,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                //mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    width: 150,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          'assets/images/verumchor1.jpg',
-                                        ),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        'Chicken Biriyani',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.11,
-                                      ),
-                                      Text(
-                                        "₹70",
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 5.0),
-                                    child: RatingBar.builder(
-                                        itemSize: 11,
-                                        initialRating: 3,
-                                        minRating: 0,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemBuilder: (context, _) => Icon(
-                                              Icons.star,
-                                              color: Colors.amber,
-                                            ),
-                                        onRatingUpdate: (rating) {}),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 25),
-                              color: Colors.white,
-                              //margin: EdgeInsets.all(10),
-                              height: 150, width: 150,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                //mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    width: 150,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          'assets/images/verumchor1.jpg',
-                                        ),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        'Chicken Biriyani',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.11,
-                                      ),
-                                      Text(
-                                        "₹70",
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 5.0),
-                                    child: RatingBar.builder(
-                                        itemSize: 11,
-                                        initialRating: 3,
-                                        minRating: 0,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemBuilder: (context, _) => Icon(
-                                              Icons.star,
-                                              color: Colors.amber,
-                                            ),
-                                        onRatingUpdate: (rating) {}),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              //Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 25),
-                              color: Colors.white,
-                              //margin: EdgeInsets.all(10),
-                              height: 150, width: 150,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                //mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    width: 150,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/verumchor1.jpg'),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        'Chicken Biriyani',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.11,
-                                      ),
-                                      Text(
-                                        "₹70",
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 5.0),
-                                    child: RatingBar.builder(
-                                        itemSize: 11,
-                                        initialRating: 3,
-                                        minRating: 0,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemBuilder: (context, _) => Icon(
-                                              Icons.star,
-                                              color: Colors.amber,
-                                            ),
-                                        onRatingUpdate: (rating) {}),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                          );
+                        },
                       ),
                     ),
                   ],
@@ -626,11 +407,11 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.white,
     );
   }
-  void _showBottomSheet(BuildContext context){
-    showModalBottomSheet(context: context,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50),bottomRight: Radius.circular(50))),
-        builder: (context)=>
-      BottomSheetPage()
-        );
+
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+        elevation: 0,
+        context: context,
+        builder: (context) => BottomSheetPage());
   }
 }

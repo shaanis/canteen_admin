@@ -5,30 +5,37 @@ class BottomSheetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
+    return Container(
+      decoration: BoxDecoration(color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(15), topLeft: Radius.circular(15))),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Center(
             child: Container(
               height: 6,
               width: 80,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
-              color: Color(0xffbfc6d1)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Color(0xffbfc6d1)),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20.0,top: 10),
+            padding: const EdgeInsets.only(left: 20.0, top: 10),
             child: Text("20 Orders Today"),
           ),
-          SizedBox(height: 3,),
+          SizedBox(
+            height: 3,
+          ),
           Container(
-                child: Expanded(
-                  child: ListView.builder(
-                    itemCount: 14,
-                      itemBuilder:(BuildContext context,int index){
+            child: Expanded(
+              child: ListView.builder(
+                  itemCount: 14,
+                  itemBuilder: (BuildContext context, int index) {
                     return Container(
                       height: 110,
                       color: Colors.white,
@@ -45,7 +52,8 @@ class BottomSheetPage extends StatelessWidget {
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 image: DecorationImage(
-                                    image: AssetImage('assets/images/verumchor1.jpg'),
+                                    image: AssetImage(
+                                        'assets/images/verumchor1.jpg'),
                                     fit: BoxFit.cover),
                                 shape: BoxShape.rectangle,
                                 borderRadius: BorderRadius.circular(12)),
@@ -57,53 +65,85 @@ class BottomSheetPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 10,),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Text(
                                 'Chicken Biriyani',
-                                style:
-                                TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 11),
                               ),
-                              SizedBox(height: 5,),
+                              SizedBox(
+                                height: 5,
+                              ),
                               Text(
                                 'Token No:032',
-                                style: TextStyle(fontSize: 12, color: Colors.grey),
+                                style:
+                                    TextStyle(fontSize: 12, color: Colors.grey),
                               ),
-                              SizedBox(height: 5,),
+                              SizedBox(
+                                height: 5,
+                              ),
                               Text(
                                 'Quality:5',
-                                style: TextStyle(fontSize: 12, color: Colors.grey),
+                                style:
+                                    TextStyle(fontSize: 12, color: Colors.grey),
                               ),
                               Row(
                                 children: [
                                   Text(
                                     '₹70',
-                                    style:
-                                    TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  SizedBox(width: 30,),
+                                  SizedBox(
+                                    width: 30,
+                                  ),
                                   ElevatedButton(
-                                    onPressed: (){},
+                                    onPressed: () {},
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Color(0xff53e510),
                                       elevation: 0,
                                       fixedSize: Size(70, 30),
                                       minimumSize: Size(10, 15),
-                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7),),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(7),
+                                      ),
                                     ),
-                                    child: Text('Done',style:TextStyle(fontSize: 10,color: Colors.white,fontWeight: FontWeight.w500),),),
-                                  SizedBox(width: 10,),
+                                    child: Text(
+                                      'Done',
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
                                   ElevatedButton(
-                                      onPressed: (){},
+                                      onPressed: () {},
                                       style: ElevatedButton.styleFrom(
                                         elevation: 0,
                                         backgroundColor: Colors.white,
                                         fixedSize: Size(70, 30),
                                         minimumSize: Size(10, 15),
                                         shape: RoundedRectangleBorder(
-                                          side: BorderSide(color: Color(0xfffd3327),width: 0.9),
-                                          borderRadius: BorderRadius.circular(7),),
+                                          side: BorderSide(
+                                              color: Color(0xfffd3327),
+                                              width: 0.9),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
                                       ),
-                                      child: Text('Cancel',style: TextStyle(fontSize: 10,color: Colors.red,fontWeight: FontWeight.w400),)),
+                                      child: Text(
+                                        'Cancel',
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.w400),
+                                      )),
                                 ],
                               ),
                             ],
@@ -112,8 +152,8 @@ class BottomSheetPage extends StatelessWidget {
                       ),
                     );
                   }),
-                ),
-              ),
+            ),
+          ),
         ],
       ),
     );

@@ -16,6 +16,8 @@ class _ProfileMenuState extends State<ProfileMenu> {
   bool status = false;
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -41,17 +43,17 @@ class _ProfileMenuState extends State<ProfileMenu> {
         child: Container(
           child: Column(
             children: [
-              SizedBox(height: 10,),
+              // SizedBox(height: height*.0001,),
               Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0, top: 15),
                     child: Container(
-                      width: 80,
-                      height: 80,
+                      width: width*.18,
+                      height: height*.09,
                       decoration: BoxDecoration(
                         color: Color(0xffdffcd2),
-                        borderRadius: BorderRadius.circular(100),
+                        borderRadius: BorderRadius.circular(height*1),
                       ),
                       child: Image.asset("assets/images/ic_launcher.png"),
                     ),
@@ -63,258 +65,232 @@ class _ProfileMenuState extends State<ProfileMenu> {
                         Text(
                           "Harilal ",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15),
+                              fontWeight: FontWeight.w500, fontSize: width*0.05),
                         ),
                       ],
                     ),
                   )
                 ],
               ),
-              SizedBox(height: 40,),
+              SizedBox(height: height*.04,),
               Container(
                 padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
                 margin: EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 5,
-                  bottom: 10,
+                  left: height*.025,
+                  right: height*.02,
+                  top: height*.006,
+                  bottom: height*.03,
                 ),
-                width: double.infinity,
-                height: 70,
+                width: width,
+                height: height*.09,
                 decoration: BoxDecoration(
                     color: Color(0xffdffcd2),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.person_outline_sharp,
-                              color: Color(0xfff96e3e),
-                            ),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Personal Info"),
-                          Spacer(),
-                          Icon(Icons.arrow_forward_ios, size: 15),
-                        ],
+                    borderRadius: BorderRadius.circular(height*.015)),
+                child: InkWell(
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.person_outline_sharp,
+                          color: Color(0xfff96e3e),
+                        ),
                       ),
-                      onTap:() {
-                        Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => ProfileEdit()),
-                                  );
-                      },
-                    ),
-                  ],
+                      SizedBox(width: width*.025,),
+                      Text("Personal Info"),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios, size: height*.02),
+                    ],
+                  ),
+                  onTap:() {
+                    Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ProfileEdit()),
+                              );
+                  },
                 ),
               ),
-              SizedBox(height: 15,),
               Container(
                 padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
                 margin: EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 5,
-                  bottom: 10,
+                  left: height*.025,
+                  right: height*.02,
+                  top: height*.006,
+                  bottom: height*.03,
                 ),
-                width: double.infinity,
-                height: 70,
+                width: width,
+                height: height*.09,
                 decoration: BoxDecoration(
                     color: Color(0xffdffcd2),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.settings_outlined,
-                              color: Color(0xff403dfa),
-                            ),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Maintanance"),
-                          Spacer(),
-                          FlutterSwitch(
-                            width: 42,
-                              height: 23,
-                              toggleSize: 15,
-                              value: status,
-                              onToggle: (val){
-                            setState(() {
-                              status = val;
-                            });
-                              })
-                        ],
+                    borderRadius: BorderRadius.circular(height*.015)),
+                child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.settings_outlined,
+                          color: Color(0xff403dfa),
+                        ),
                       ),
-                  ],
-                ),
+                      SizedBox(width: width*.025,),
+                      Text("Maintanance"),
+                      Spacer(),
+                      FlutterSwitch(
+                        width: width*.1,
+                          height: height*.0275,
+                          toggleSize: height*.015,
+                          value: status,
+                          activeColor: Color(0xff52e311),
+                          onToggle: (val){
+                        setState(() {
+                          status = val;
+                        });
+                          })
+                    ],
+                  ),
               ),
-              SizedBox(height: 15,),
               Container(
                 padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
                 margin: EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 5,
-                  bottom: 10,
+                    left: height*.025,
+                    right: height*.02,
+                    top: height*.006,
+                    bottom: height*.03,
                 ),
-                width: double.infinity,
-                height: 70,
+                width: width,
+                height: height*.09,
                 decoration: BoxDecoration(
                     color: Color(0xffdffcd2),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Image.asset('assets/images/bill1.png',scale: 13,color: Color(0xff18cde7),),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Manage Orders"),
-                          Spacer(),
-                          Icon(Icons.arrow_forward_ios, size: 15),
-                        ],
+                    borderRadius: BorderRadius.circular(height*.015)),
+                child: InkWell(
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Image.asset('assets/images/bill1.png',scale: 13,color: Color(0xff18cde7),),
                       ),
-                      onTap:() {
-                        /* Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => ProfileEdit()),
-                                  );*/
-                      },
-                    ),
-                  ],
+                      SizedBox(width: width*.025,),
+                      Text("Manage Orders"),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios, size: height*.02),
+                    ],
+                  ),
+                  onTap:() {
+                    /* Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ProfileEdit()),
+                              );*/
+                  },
                 ),
               ),
-              SizedBox(height: 15,),
+
               Container(
                 padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
                 margin: EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 5,
-                  bottom: 10,
+                  left: height*.025,
+                  right: height*.02,
+                  top: height*.006,
+                  bottom: height*.03,
                 ),
-                width: double.infinity,
-                height: 70,
+                width: width,
+                height: height*.09,
                 decoration: BoxDecoration(
                     color: Color(0xffdffcd2),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.history,
-                              color: Color(0xfff96e3e),
-                            ),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Donation History"),
-                          Spacer(),
-                          Icon(Icons.arrow_forward_ios, size: 15),
-                        ],
+                    borderRadius: BorderRadius.circular(height*.015)),
+                child: InkWell(
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.history,
+                          color: Color(0xfff96e3e),
+                        ),
                       ),
-                      onTap:() {
-                        Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => DonationHistory()),
-                                  );
-                      },
-                    ),
-                  ],
+                      SizedBox(width: width*.025,),
+                      Text("Donation History"),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios, size: height*.02),
+                    ],
+                  ),
+                  onTap:() {
+                    Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => DonationHistory()),
+                              );
+                  },
                 ),
               ),
-              SizedBox(height: 15,),
               Container(
                 padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
                 margin: EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 5,
-                  bottom: 10,
+                  left: height*.025,
+                  right: height*.02,
+                  top: height*.006,
+                  bottom: height*.03,
                 ),
-                width: double.infinity,
-                height: 70,
+                width: width,
+                height: height*.09,
                 decoration: BoxDecoration(
                     color: Color(0xffdffcd2),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.person_outline_sharp,
-                              color: Color(0xfff96e3e),
-                            ),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Personal Info"),
-                          Spacer(),
-                          Icon(Icons.arrow_forward_ios, size: 15),
-                        ],
+                    borderRadius: BorderRadius.circular(height*.015)),
+                child: InkWell(
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.person_outline_sharp,
+                          color: Color(0xfff96e3e),
+                        ),
                       ),
-                      onTap:() {
-                        /* Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => ProfileEdit()),
-                                  );*/
-                      },
-                    ),
-                  ],
+                      SizedBox(width:width*.025,),
+                      Text("Personal Info"),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios, size: height*.02),
+                    ],
+                  ),
+                  onTap:() {
+                    /* Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ProfileEdit()),
+                              );*/
+                  },
                 ),
               ),
-              SizedBox(height: 15,),
+              // SizedBox(height: height*.02,),
               Container(padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
                 margin: EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 5,
-                  bottom: 10,
+                  left: height*.025,
+                  right: height*.02,
+                  top: height*.006,
+                  bottom: height*.004,
                 ),
-                width: double.infinity,
-                height: 60,
+                width: width,
+                height: height*.09,
                 decoration: BoxDecoration(
                     color: Color(0xffdffcd2),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () async {
-                        final action = await AlertDialogs.yesCancelDialog(context,'Logout?','Are you sure want to logout ?');
-                      },
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.logout_outlined,
-                              color: Color(0xfff94959),
-                            ),
+                    borderRadius: BorderRadius.circular(height*.015)),
+                child: InkWell(
+                  onTap: () async {
+                    final action = await AlertDialogs.yesCancelDialog(context,'Logout?','Are you sure want to logout ?');
+                  },
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.logout_outlined,
+                          color: Color(0xfff94959),
+                        ),
 
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Log Out"),
-                          Spacer(),
-                          Icon(Icons.arrow_forward_ios, size: 15),
-                        ],
                       ),
-                    ),
-                  ],
+                      SizedBox(width: width*.025,),
+                      Text("Log Out"),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios, size: height*.02),
+                    ],
+                  ),
                 ),
               ),
             ],

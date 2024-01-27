@@ -7,6 +7,7 @@ class BottomSheetPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(color: Colors.white,
+
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(15), topLeft: Radius.circular(15))),
       child: Column(

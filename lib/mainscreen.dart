@@ -324,7 +324,7 @@ class _MainScreenState extends State<MainScreen> {
                               // Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
                             },
                             child: Container(
-                              margin: EdgeInsets.only(right: 25),
+                              margin: EdgeInsets.only(right: height*.025),
                               color: Colors.white,
                               height: 20,
                               width: width * .39,
@@ -337,7 +337,7 @@ class _MainScreenState extends State<MainScreen> {
                                     width: width * .4,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.circular(height*.01),
                                       image: DecorationImage(
                                         image: AssetImage(
                                           'assets/images/verumchor1.jpg',
@@ -347,17 +347,17 @@ class _MainScreenState extends State<MainScreen> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 5,
+                                    height: height*.013,
                                   ),
                                   Row(
                                     children: [
                                       SizedBox(
-                                        width: 5,
+                                        width: width*.01,
                                       ),
                                       Text(
                                         'Chicken Biriyani',
                                         style: TextStyle(
-                                            fontSize: 10,
+                                            fontSize: height*.013,
                                             fontWeight: FontWeight.w500),
                                       ),
                                       SizedBox(
@@ -379,7 +379,7 @@ class _MainScreenState extends State<MainScreen> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 5.0),
                                     child: RatingBar.builder(
-                                        itemSize: 11,
+                                        itemSize: height*.011,
                                         initialRating: 3,
                                         minRating: 0,
                                         direction: Axis.horizontal,
@@ -409,8 +409,9 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void _showBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-        elevation: 0,
+    showModalBottomSheet(shape:
+    OutlineInputBorder(borderSide: BorderSide.none,
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10))) ,
         context: context,
         builder: (context) => BottomSheetPage());
   }

@@ -18,11 +18,13 @@ enum MenuValues{
 class _ProductlistState extends State<Productlist> {
   @override
   Widget build(BuildContext context) {
+    final height =MediaQuery.of(context).size.height;
+    final width =MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 56,
-        backgroundColor: Colors.white,
+        // toolbarHeight: 56,
+        backgroundColor: Colors.red,
         elevation: 0,
         title: Center(
             child: Text(
@@ -36,32 +38,31 @@ class _ProductlistState extends State<Productlist> {
           Container(
             child: Expanded(
               child: ListView.builder(
-                  itemCount: 15,
+                  itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      height: 90,
+                      height: height*.11,
                       color: Colors.white,
                       width: double.infinity,
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(height*.01),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            margin: EdgeInsets.all(5),
-                            height: 90,
-                            width: 100,
+                            margin: EdgeInsets.all(height*.007),
+                            height: height*.11,
+                            width: width*.25,
                             decoration: BoxDecoration(
-                                color: Colors.white,
                                 image: DecorationImage(
                                     image: AssetImage(
                                         'assets/images/verumchor1.jpg'),
                                     fit: BoxFit.cover),
                                 shape: BoxShape.rectangle,
-                                borderRadius: BorderRadius.circular(12)),
+                                borderRadius: BorderRadius.circular(height*.01)),
                           ),
                           SizedBox(
-                            width: 10,
+                            width: width*.015,
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -70,10 +71,10 @@ class _ProductlistState extends State<Productlist> {
                               Text(
                                 'Chicken Biriyani',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 11),
+                                    fontWeight: FontWeight.bold, fontSize: height*.013),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: height*.011,
                               ),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,33 +82,33 @@ class _ProductlistState extends State<Productlist> {
                                   Icon(
                                     Icons.star,
                                     color: Colors.amber,
-                                    size: 16,
+                                    size: height*.019,
                                   ),
                                   SizedBox(
-                                    width: 5,
+                                    width: width*.015,
                                   ),
                                   Text(
                                     '4.9',
                                     style: TextStyle(
-                                        color: Colors.amber, fontSize: 10),
+                                        color: Colors.amber, fontSize: height*.013),
                                   ),
                                   SizedBox(
-                                    width: 10,
+                                    width: width*.017,
                                   ),
                                   Text(
                                     '(10 Reviews)',
                                     style: TextStyle(
-                                        color: Color(0xff808180), fontSize: 10),
+                                        color: Color(0xff808180), fontSize: height*.012),
                                   ),
                                 ],
                               ),
                               SizedBox(
-                                height: 10,
+                                height: height*.011,
                               ),
                               Text(
                                 '₹70',
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                                    fontSize: height*.018, fontWeight: FontWeight.w500),
                               )
                             ],
                           ),
@@ -118,7 +119,8 @@ class _ProductlistState extends State<Productlist> {
                                 child: Row(
                                   children: [
                                     Icon(Icons.edit_outlined),
-                                    Text('Edit Item'),
+                                    SizedBox(width: width*.015,),
+                                    Text('Edit Item',style: TextStyle(fontSize: height*.018),),
                                   ],
                                 ),
                                   value: MenuValues.EditItem
@@ -127,7 +129,8 @@ class _ProductlistState extends State<Productlist> {
                                 child: Row(
                                   children: [
                                     Icon(Icons.delete_outline_outlined),
-                                    Text('Delete Item')
+                                    SizedBox(width: width*.015,),
+                                    Text('Delete Item',style: TextStyle(fontSize: height*.018),),
                                   ],
                                 ),
                                   value: MenuValues.DeleteItem
@@ -150,7 +153,7 @@ class _ProductlistState extends State<Productlist> {
                   }),
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: height*.007,),
           ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -165,11 +168,12 @@ class _ProductlistState extends State<Productlist> {
                   backgroundColor: Color(0xff53e510),
                   minimumSize: Size(350, 45),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30))),
+                      borderRadius: BorderRadius.circular(height*.19))),
               child: Text(
                 'Add New Item',
-                style: TextStyle(fontWeight: FontWeight.w500),
-              ))
+                style: TextStyle(fontWeight: FontWeight.w400),
+              )),
+          SizedBox(height: height*.002,)
         ],
       ),
     );

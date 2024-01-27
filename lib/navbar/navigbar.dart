@@ -30,8 +30,7 @@ class _navigationState extends State<navigation> {
           index: myIndex),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
-        type: BottomNavigationBarType.shifting,
-        //selectedItemColor: Color(0xff58e517),
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         onTap: (index) {
           setState(() {
